@@ -5,8 +5,8 @@ import Layout from "../components/Layout";
 const IndexPage = () => {
   const classes = useStyles();
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
-      <h1>Hello Next.js 👋</h1>
+    <Layout title="ホーム">
+      <h1>こんにちは</h1>
       <p>
         <Link href="/about">
           <a>About</a>
@@ -22,7 +22,7 @@ const IndexPage = () => {
 const useStyles = makeStyles((theme) => ({
   button: {
     backgroundColor: theme.palette.primary.main,
-    color: "white",
+    color: theme.palette.background.default,
   },
 }));
 
