@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { AppProps } from "next/app";
 import { ThemeProvider as MaterialUIThemeProvider } from "@material-ui/core/styles";
 import { StylesProvider } from "@material-ui/styles";
-import createMuiTheme, { Theme } from "@material-ui/core/styles/createMuiTheme";
+import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
@@ -40,16 +40,16 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   );
 };
 
-const theme: Theme = createMuiTheme({
+const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#556cd6",
+      main: "#BF1363",
     },
     secondary: {
-      main: "#19857b",
+      main: "#444",
     },
     background: {
-      default: "#fff",
+      default: "#FAFAFA",
     },
   },
 });

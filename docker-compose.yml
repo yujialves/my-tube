@@ -6,7 +6,11 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - "./frontend/app:/root"
+      - "./frontend/app/components:/usr/src/app/components"
+      - "./frontend/app/interfaces:/usr/src/app/interfaces"
+      - "./frontend/app/pages:/usr/src/app/pages"
+      - "./frontend/app/store:/usr/src/app/store"
+      - "./frontend/app/utils:/usr/src/app/utils"
     tty: true
   backend:
     build: ./backend
