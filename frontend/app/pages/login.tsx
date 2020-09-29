@@ -1,17 +1,17 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Layout from "../components/Layout";
 import { Grid, TextField } from "@material-ui/core";
+import Link from "next/link";
 
 const Login = () => {
   const classes = useStyles();
   return (
-    <Layout>
+    <Layout title="ログイン">
       <Grid
         container
         justify="center"
@@ -31,7 +31,7 @@ const Login = () => {
               >
                 MyTube
               </Typography>
-              <div className={classes.center}>
+              <Grid container justify="center" alignItems="center">
                 <TextField
                   placeholder="ユーザー名"
                   InputProps={{
@@ -41,8 +41,8 @@ const Login = () => {
                   }}
                   className={classes.textField}
                 />
-              </div>
-              <div className={classes.center}>
+              </Grid>
+              <Grid container justify="center" alignItems="center">
                 <TextField
                   placeholder="パスワード"
                   type="password"
@@ -53,13 +53,16 @@ const Login = () => {
                   }}
                   className={classes.textField}
                 />
-              </div>
-            </CardContent>
-            <CardActions>
+              </Grid>
               <Grid container justify="center" alignItems="center">
                 <Button className={classes.button}>ログイン</Button>
               </Grid>
-            </CardActions>
+              <Grid container justify="center" alignItems="center">
+                <Link href="/signup">
+                  <a className={classes.link}>初めての方はこちら</a>
+                </Link>
+              </Grid>
+            </CardContent>
           </Card>
         </Grid>
       </Grid>
@@ -69,7 +72,7 @@ const Login = () => {
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    height: window ? window.innerHeight - 100 : undefined,
+    height: process.browser ? window.innerHeight - 100 : undefined,
   },
   title: {
     fontSize: 20,
@@ -86,10 +89,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("lg")]: {
       fontSize: 26,
     },
-  },
-  center: {
-    display: "flex",
-    justifyContent: "center",
   },
   textField: {
     marginBottom: 20,
@@ -119,7 +118,9 @@ const useStyles = makeStyles((theme) => ({
   button: {
     color: "white",
     backgroundColor: theme.palette.primary.main,
+    marginTop: 20,
     marginBottom: 40,
+    fontWeight: "bold",
     fontSize: 14,
     width: "80%",
     height: 42,
@@ -140,6 +141,13 @@ const useStyles = makeStyles((theme) => ({
     },
     "&:hover": {
       color: theme.palette.primary.main,
+    },
+  },
+  link: {
+    textDecoration: "none",
+    color: theme.palette.primary.main,
+    "&:hover": {
+      textDecoration: "underline",
     },
   },
 }));
